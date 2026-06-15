@@ -168,8 +168,15 @@
     };
 };
 
-// quick-tap-ms: tap then press-and-hold the same thumb to auto-repeat the
-// tap (e.g. delete many chars on SYM/BSPC) instead of holding the layer.
+// Thumb layer-taps (NUM/TAB, NAV/SPACE, SYM/BSPC):
+//  - flavor "balanced": holding the thumb + pressing another key resolves to
+//    the LAYER (so e.g. hold SYM/BSPC then tap a key types the symbol, not
+//    the base letter).
+//  - quick-tap-ms 0: DISABLE tap-then-hold auto-repeat. Otherwise holding the
+//    SYM/BSPC thumb would machine-gun Backspace instead of entering SYM.
+//    To repeat Backspace, hold the plain BSPC on the top-right pinky instead.
 &lt {
-    quick-tap-ms = <175>;
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <0>;
 };
