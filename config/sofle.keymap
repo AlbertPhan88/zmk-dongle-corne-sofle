@@ -113,11 +113,12 @@
         nav_layer {
             display-name = "NAV";
             // Right hand = arrows / paging (inverted-T: UP on I, LEFT/DOWN/RIGHT on J/K/L)
+            //              INS sits under HOME (index finger), DEL right of RIGHT
             // Left hand  = undo / cut / copy / paste / redo
             bindings = <
 &trans     &trans        &trans        &trans        &trans        &trans                                    &trans     &trans        &trans        &trans       &trans          &trans
 &trans     &trans        &trans        &trans        &trans        &trans                                    &kp HOME   &kp PG_DN     &kp UP        &kp PG_UP    &kp END         &trans
-&trans     &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)                                 &trans     &kp LEFT      &kp DOWN      &kp RIGHT    &trans          &trans
+&trans     &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)                                 &kp INS    &kp LEFT      &kp DOWN      &kp RIGHT    &kp DEL         &trans
 &trans     &trans        &trans        &trans        &trans        &trans     &trans         &trans          &trans     &trans        &trans        &trans       &trans          &trans
                          &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
             >;
