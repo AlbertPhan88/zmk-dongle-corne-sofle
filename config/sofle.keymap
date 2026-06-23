@@ -158,11 +158,12 @@
             display-name = "FUN";
             // Left = F-keys; right home row = Ctrl/Shift/Alt/GUI (so e.g. Alt+F4
             // = hold both thumbs, hold L=Alt, tap F=F4). Media, BT, Studio, reset.
+            // Bottom-right: PSCRN (full screen) + Win+Shift+S (Windows region snip).
             bindings = <
 &bt BT_CLR    &trans        &trans        &trans        &trans        &trans                                  &trans          &trans       &trans       &trans       &trans       &trans
 &sys_reset    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                            &kp C_PREV      &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp C_PP     &bootloader
 &bootloader   &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                  &studio_unlock  &kp RCTRL    &kp RSHFT    &kp RALT     &kp RGUI     &ext_power EP_TOG
-&sys_reset    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10    &trans         &trans         &none           &none        &none        &none        &kp F11      &kp F12
+&sys_reset    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10    &trans         &trans         &kp PSCRN       &kp LG(LS(S)) &none        &none        &kp F11      &kp F12
                             &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
