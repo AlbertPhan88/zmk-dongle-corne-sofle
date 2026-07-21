@@ -7,13 +7,14 @@
  *  - Daily typing on the inner 3x5 + thumbs
  *  - Top number row + outer pinky columns hold rare/legacy keys
  *  - Home-row mods (GUI / ALT / SHIFT / CTRL, pinky->index, mirrored)
- *  - Layers: NAV, NUM, SYM, and FUN (NAV+SYM tri-layer)
+ *  - Layers: NAV, NUM, SYM, and FUN (NAV+NUM tri-layer)
  *
  * Thumbs (outer -> inner):
  *   left  = GUI | SHIFT | ESC | ENTER | NAV/SPACE
  *   right = NUM/BSPC | SYM/TAB | DEL | SHIFT | GUI
  * NUM on a right thumb -> type the numpad with the right hand alone.
- * FUN = NAV + SYM held together (= SPACE + TAB), still on opposite hands.
+ * FUN = NAV + NUM held together (= SPACE + BSPC), the two innermost thumb
+ * keys next to the split -> easier reach than NAV+SYM, still opposite hands.
  *
  * Dongle notes:
  *  - RGB underglow is disabled in sofle.conf, so the FUN layer has no
@@ -75,11 +76,11 @@
         };
     };
 
-    // FUN layer appears when NAV and SYM are held together.
+    // FUN layer appears when NAV and NUM are held together.
     conditional_layers {
         compatible = "zmk,conditional-layers";
         fun_layer {
-            if-layers = <NAV SYM>;
+            if-layers = <NAV NUM>;
             then-layer = <FUN>;
         };
     };
