@@ -53,7 +53,7 @@ layers:
   - $$mdi:backspace-outline$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-shift$$
-  - Esc
+  - ⌦
   - ENTER
   - {t: ␣, h: NAV}
   - {t: '$$mdi:backspace-outline$$', h: NUM}

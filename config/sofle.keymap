@@ -10,8 +10,9 @@
  *  - Layers: NAV, NUM, SYM, and FUN (NAV+NUM tri-layer)
  *
  * Thumbs (outer -> inner):
- *   left  = GUI | SHIFT | ESC | ENTER | NAV/SPACE
+ *   left  = GUI | SHIFT | DEL | ENTER | NAV/SPACE
  *   right = NUM/BSPC | SYM/TAB | DEL | SHIFT | GUI
+ * DEL now sits on both thumb clusters (base row-leftmost key keeps ESC).
  * NUM on a right thumb -> type the numpad with the right hand alone.
  * FUN = NAV + NUM held together (= SPACE + BSPC), the two innermost thumb
  * keys next to the split -> easier reach than NAV+SYM, still opposite hands.
@@ -107,7 +108,7 @@
 &kp ESC    &kp Q         &kp W         &kp E         &kp R         &kp T                                     &kp Y      &kp U         &kp I         &kp O        &kp P           &kp MINUS
 &kp TAB    &hml LGUI A   &hml LALT S   &hml LSHFT D  &hml LCTRL F  &kp G                                     &kp H      &hmr RCTRL J  &hmr RSHFT K  &hmr RALT L  &hmr RGUI SEMI  &kp SQT
 &kp GRAVE  &kp Z         &kp X         &kp C         &kp V         &kp B      &kp C_MUTE     &kp C_PP         &kp N      &kp M         &kp COMMA     &kp DOT      &kp FSLH        &kp BSPC
-                         &kp LGUI  &kp LSHFT  &kp ESC  &kp ENTER  &lt NAV SPACE      &lt NUM BSPC  &lt SYM TAB  &kp DEL  &kp RSHFT  &kp RGUI
+                         &kp LGUI  &kp LSHFT  &kp DEL  &kp ENTER  &lt NAV SPACE      &lt NUM BSPC  &lt SYM TAB  &kp DEL  &kp RSHFT  &kp RGUI
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
