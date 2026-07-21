@@ -32,3 +32,51 @@ jobs:
             --title "Latest firmware ($(date -u +%Y-%m-%d), ${GITHUB_SHA::7})" \
             --notes "Auto-built from commit ${GITHUB_SHA} on main. Flash the .uf2 matching your board/shield." \
             --target "${GITHUB_SHA}"
+
+  keymap-drawer:
+    name: Regenerate keymap diagrams
+    needs: build
+    runs-on: ubuntu-latest
+    # Keeps keymap-drawer/*.svg (embedded in the README) in sync with
+    # config/*.keymap on every build, instead of relying on someone
+    # remembering to re-export it by hand.
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install keymap-drawer
+        run: pip install keymap-drawer
+
+      - name: Draw keymaps
+        run: |
+          set -e
+          for name in corne sofle splitkb_aurora_sofle; do
+            tmp="$(mktemp)"
+            keymap -c config/config_keymap-drawer.yaml parse \
+              -z "config/${name}.keymap" -b "keymap-drawer/${name}.yaml" -o "${tmp}"
+            mv "${tmp}" "keymap-drawer/${name}.yaml"
+            keymap -c config/config_keymap-drawer.yaml draw \
+              "keymap-drawer/${name}.yaml" -o "keymap-drawer/${name}.svg"
+          done
+
+      - name: Commit updated diagrams
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add keymap-drawer/*.yaml keymap-drawer/*.svg
+          if git diff --cached --quiet; then
+            echo "No keymap diagram changes."
+          else
+            git commit -m "chore: regenerate keymap diagrams [skip ci]"
+            git push
+          fi
